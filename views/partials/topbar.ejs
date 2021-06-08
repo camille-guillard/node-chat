@@ -1,0 +1,16 @@
+<navbar class="p-2 d-flex flex-row justify-content-between align-items-center">
+  <a href="/">
+    <img class="logo" src="/images/logo.png" alt="logo">
+
+    <div class="d-flex flex-row">
+      <% if (user) { %>
+        <a href="/auth/signout" class="mx-3">Deconnexion</a>
+        <a href="/protected" class="mx-3">Protected</a>
+      <% } else { %>
+        <a href="/users/new" class="mx-3">Inscription</a>
+        <a href="/auth/signin/form" class="mx-3">Connexion</a>
+      <% } %>
+    </div>
+  </a>
+
+</navbar>

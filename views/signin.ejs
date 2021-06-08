@@ -1,13 +1,17 @@
 <html>
   <head>
-    <title>Mon title</title>
+    <title>Node Chat</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="/javascripts/index.js"></script>
+    <link rel="stylesheet" href="/css/style.css">
   </head>
-  <body>
-    <div class="container-fluid">
-      <div class="d-flex flex-column align-items-center justify-content-center w-100" style="height:100vh;">
-        <h1>Connexion</h1>
+  <body class="d-flex flex-column">
+    <div class="flex-fill container-fluid d-flex flex-column">
+      <%- include('partials/topbar.ejs', { user: null } ) %>
+      
+      <div class="flex-fill d-flex flex-column align-items-center justify-content-center w-100">
+        
+        <h3>Connexion</h3>
         <div class="d-flex flex-row">
           <form method="post" action="/auth/signin" >
             <div class="form-group">
@@ -26,6 +30,7 @@
             </div>
           </form>
         </div>
+        
       </div>
     </div>
   </body>

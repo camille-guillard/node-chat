@@ -1,0 +1,32 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  color: #ddd;
+}
+
+a:hover {
+  color: #ddd;
+  text-decoration: none;
+}
+
+body {
+  background-color: #36393f;
+  color: #dcddde;
+  min-height: 100vh;
+}
+
+.logo {
+  width: 70px;
+}
+
+h3 {
+  padding-bottom: 15px;
+}
