@@ -27,6 +27,12 @@ const checkExpirationToken = (token, res) => {
   }
 }
 
+const decodeJwtToken = (token) => {
+  return jwt.verify(token, secret);
+};
+
+exports.decodeJwtToken = decodeJwtToken;
+
 const extractUserFromToken = async (req, res, next) => {
   const token = req.cookies.jwt;
   if (token) {
