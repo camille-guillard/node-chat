@@ -30,3 +30,100 @@ body {
 h3 {
   padding-bottom: 15px;
 }
+
+.container-fluid {
+  padding: 0;
+}
+
+.container-namespaces {
+  background-color: #2f3136;
+  border-right: 2px solid #36393f;
+  padding-top: 4px;
+}
+
+.container-rooms {
+  min-width: 220px;
+}
+
+.container-chat {
+  padding: 0px 20px;
+}
+
+.item-namespace {
+  padding: 2px;
+  margin: 2px;
+}
+
+.item-namespace:hover {
+  background: #36393f;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.item-namespace img {
+  width: 50px;
+  height: 50px;
+}
+
+.item-namespace.active {
+  background: #36393f;
+  border-radius: 5px;
+}
+
+.container-rooms {
+  background-color: #2f3136;
+  padding: 3px;
+}
+
+.item-room {
+  padding: 2px;
+  margin: 2px;
+}
+
+.item-room:hover {
+  cursor: pointer;
+  background: #36393f;
+  border-radius: 5px;
+}
+
+.item-room.active {
+  background: #36393f;
+  border-radius: 5px;
+}
+
+.list-messages {
+  overflow-y: auto;
+  max-height: calc(100vh - 180px);
+}
+
+.item-message-time {
+  margin-right: 7px;
+}
+
+.item-message-name {
+  margin-right: 10px;
+}
+
+.item-message-content {
+  
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}

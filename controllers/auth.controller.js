@@ -12,7 +12,7 @@ exports.signin = async (req, res, next) => {
       const match = await user.comparePassword(password);
       if (match) {
         req.login(user);
-        res.redirect('/protected');
+        res.redirect('/');
       } else {
         res.render('signin', { error: 'Wrong password' });
       }

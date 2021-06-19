@@ -7,9 +7,14 @@
     <script src="/javascripts/socket.js"></script>
     <link rel="stylesheet" href="/css/style.css">
   </head>
-  <body>
-    <div class="container-fluid">
+  <body class="d-flex flex-column">
+    <div class="container-fluid flex-fill d-flex flex-column">
       <%- include('partials/topbar.ejs', user) %>
+      <div class="container-fluid flex-fill d-flex flex-row">
+        <%- include('partials/namespaces.ejs') %>
+        <%- include('partials/rooms.ejs') %>
+        <%- include('partials/chat.ejs') %>
+      </div>
     </div>
   </body>
 </html>
