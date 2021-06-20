@@ -3,6 +3,8 @@ let namespacesSockets = [];
 let rooms = [];
 let init = false;
 let activeNsSocket;
+let activeRoom;
+let messages = [];
 
 const ioClient = io({
   reconnection: false,
@@ -24,48 +26,15 @@ ioClient.on('namespaces', (data) => {
         init = true;
       }
     })
+    nsSocket.on('history', data => {
+      messages = data;
+      displayMessages(messages);
+    });
+    nsSocket.on('message', data => {
+      messages.push(data)
+      displayMessages(messages);
+    });
     namespacesSockets.push(nsSocket);
   }
 });
 
-function displayNamespaces(namespaces, activeNsp) {
-  const namespacesContainer = document.querySelector('.list-namespaces');
-  const items = namespaces.map(namespace => createNamespaceItem(namespace, activeNsp === `/${ namespace._id }`));
-  namespacesContainer.innerHTML = '';
-  namespacesContainer.prepend(...items);
-}
-
-function createNamespaceItem(namespace, isActive) {
-  const li = document.createElement('li');
-  li.classList.add('item-namespace');
-  if(isActive) {
-    li.classList.add('active');
-  }
-  li.innerHTML = `<img src="${ namespace.imgUrl }">`;
-  return li;
-}
-
-function activateNamespace(nsSocket) {
-  activeNsSocket = nsSocket;
-  firstRoom = rooms.find(room => `/${ room.namespace }` === activeNsSocket.nsp && room.index === 0);
-  displayRooms(rooms.filter(room => `/${ room.namespace }` === activeNsSocket.nsp), firstRoom._id);
-}
-
-
-
-function createRoomItem(room, isActive) {
-  const li = document.createElement('li');
-  li.classList.add('item-room');
-  if(isActive) {
-    li.classList.add('active');
-  }
-  li.innerHTML = `# ${ room.title }`;
-  return li;
-}
-
-function displayRooms(rooms, activeRoomId) {
-  const roomsContainer = document.querySelector('.list-rooms');
-  const items = rooms.map(room => createRoomItem(room, activeRoomId === room._id));
-  roomsContainer.innerHTML = '';
-  roomsContainer.prepend(...items);
-}
