@@ -14,6 +14,7 @@ const initNamespaces = async () => {
     for(let namespace of namespaces) {
       const ns = ios.of(`/${ namespace._id }`);
       ns.on('connect', async (nsSocket) => {
+
         try {
           const rooms = await findRoomByNamespaceId(namespace._id);
           nsSocket.emit('rooms', rooms);
@@ -65,6 +66,10 @@ const initSocketServer = () => {
   ios.on('connect', (socket) => {
     console.log.apply("connexion ios ok!");
     socket.emit('namespaces', namespaces);
+  });
+
+  ios.on('close', (socket) => {
+    socket.disconnect(true);
   });
 
   initNamespaces();
