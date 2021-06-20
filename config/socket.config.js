@@ -31,6 +31,10 @@ const initNamespaces = async () => {
           }
         });
 
+        nsSocket.on('leaveRoom', roomId => {
+          nsSocket.leave(`/${ roomId }`);
+        });
+
         nsSocket.on('message', async ({ text, roomId}) => {
           try {
             const { _id, username } = nsSocket.request.user;
